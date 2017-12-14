@@ -1,13 +1,13 @@
-class Moving extends Sprite{
+class Moving extends Tile{
 	constructor(sheet, xInd, yInd, x, y){
 		super(sheet, xInd, yInd, x, y);
 		this.xV=0;
 		this.yV=0;
 		this.friction=.25;
-		this.acc=.25;
-		this.cap=.25;
-		this.dir=DIR_RIGHT;
-		this.lastDir=this.dir;
+		this.acc=10;
+		this.cap=20;
+		this.xDir=0;
+		this.yDir=0;
 	}
 
 	move(dt){
@@ -20,21 +20,17 @@ class Moving extends Sprite{
 
 		this.xV *= (1 - Math.min(this.friction, 1));
 		this.yV *= (1 - Math.min(this.friction, 1));
-		
-		if(this.dir == DIR_LEFT && this.xV > -this.cap){
-			this.xV -= this.acc;
-			this.lastDir=this.dir;
-		}else if(this.dir == DIR_RIGHT && this.xV < this.cap){
-			this.xV += this.acc;
-			this.lastDir = this.dir;
+
+		if(this.xDir == DIR_LEFT && this.xV > -this.cap){
+			this.xV -= this.acc*dt;
+		}else if(this.xDir == DIR_RIGHT && this.xV < this.cap){
+			this.xV += this.acc*dt;
 		}
 
-		if (this.dir == DIR_UP && this.yV > -this.cap) {
-			this.yV -= this.acc;
-			this.lastDir = this.dir;
-		}else if(this.dir == DIR_DOWN && this.yV < this.cap) {
-			this.yV += this.acc;
-			this.lastDir = this.dir;
+		if(this.yDir == DIR_UP && this.yV > -this.cap) {
+			this.yV -= this.acc*dt;
+		}else if(this.yDir == DIR_DOWN && this.yV < this.cap) {
+			this.yV += this.acc*dt;
 		}
 
 		this.move(dt);

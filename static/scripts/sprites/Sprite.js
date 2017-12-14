@@ -3,7 +3,7 @@ class Sprite extends Base{
 		if(!sheet){console.log("Invalid SpriteSheet: "+sheet);}
 		if(!sheet.sprites[xInd][yInd]){console.log("Non-existant sprite index: ["+xInd+"]"+"["+yInd+"]"+" in sheet: "+sheet); return;}
 
-		super(x,y,0,0,"#ff0000", false); // DEBUG 
+		super(x,y,0,0); 
 		this.img=sheet.imageObj;
 		this.w=sheet.sprites[xInd][yInd].w;
 		this.h=sheet.sprites[xInd][yInd].h;

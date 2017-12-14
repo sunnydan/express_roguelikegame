@@ -10,7 +10,5 @@ class Projectile extends Moving{
 		if(ent != this.owner){
 			console.log("ON HIT");
 		}
-	}
-
-	
+	}	
 }

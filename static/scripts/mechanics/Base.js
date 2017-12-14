@@ -1,6 +1,5 @@
 class Base{
-	constructor(x,y,w,h,color,debug){
-		this.id=entities.active.length;
+	constructor(x,y,w,h){
 		this.x=x;
 		this.y=y;
 		this.w=w;
@@ -8,10 +7,9 @@ class Base{
 		this.solid=true;
 		this.movable=false;
 		this.owner=null;
-		this.color=color;
-		this.debug=debug;
+		this.color="#ff0000";
+		this.debug=false;
 		this.class=this.constructor.name;
-		entities.active.push(this);
 	}
 
 	tick(t){

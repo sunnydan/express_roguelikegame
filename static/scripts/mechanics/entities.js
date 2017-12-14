@@ -25,5 +25,5 @@ var entities = {
 			entities.active[i].tick(delta);
 			entities.collide(entities.active[i]);
 		}
-	}
+	},
 }
